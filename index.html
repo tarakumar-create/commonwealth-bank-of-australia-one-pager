@@ -59,6 +59,8 @@ body {
 .amp-logo-img { height: 26px; width: auto; display: block; object-fit: contain; }
 .logo-divider { color: rgba(255,255,255,0.35); font-size: 18px; font-weight: 300; margin: 0 14px; line-height: 1; user-select: none; }
 .partner-name { color: #fff; font-size: 17px; font-weight: 800; letter-spacing: 0.2px; }
+#partner-logo-wrap { gap: 9px; }
+.partner-logo-img { height: 30px; width: auto; display: block; object-fit: contain; }
 
 /* Header content */
 .header-content { max-width: 520px; position: relative; z-index: 3; }
@@ -163,6 +165,7 @@ input[type=file] { display: none; }
 
 <!-- Hidden file inputs for image uploads -->
 <input type="file" id="upload-amp-logo" accept="image/*">
+<input type="file" id="upload-partner-logo" accept="image/*">
 <input type="file" id="upload-screenshot" accept="image/*">
 
 <!-- Toolbar -->
@@ -207,7 +210,11 @@ input[type=file] { display: none; }
         <div class="upload-overlay"><span>Replace logo</span></div>
       </div>
       <span class="logo-divider">×</span>
-      <span class="partner-name" contenteditable="true" data-key="partner-name">CommBank</span>
+      <div class="logo-upload-wrap" id="partner-logo-wrap" title="Click to replace CommBank logo" onclick="document.getElementById('upload-partner-logo').click()">
+        <img src="data:image/svg+xml;base64,PHN2ZyBpZD0iYXJ0d29yayIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6dXJsKCNsaW5lYXItZ3JhZGllbnQpO30uY2xzLTJ7ZmlsbDp1cmwoI2xpbmVhci1ncmFkaWVudC0yKTt9PC9zdHlsZT48bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudCIgeDE9IjEzLjIyIiB5MT0iLTEzMC4wMiIgeDI9IjUwLjc4IiB5Mj0iLTE2MS41MyIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxLCAwLCAwLCAtMSwgMCwgLTExMy43OCkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZjAiLz48c3RvcCBvZmZzZXQ9IjAuMjciIHN0b3AtY29sb3I9IiNmZWYxMGMiLz48c3RvcCBvZmZzZXQ9IjAuNDUiIHN0b3AtY29sb3I9IiNmZGU1MTYiLz48c3RvcCBvZmZzZXQ9IjAuNjQiIHN0b3AtY29sb3I9IiNmZGUxMTMiLz48c3RvcCBvZmZzZXQ9IjAuODIiIHN0b3AtY29sb3I9IiNmZWQ1MDgiLz48c3RvcCBvZmZzZXQ9IjAuOTIiIHN0b3AtY29sb3I9IiNmYzAiLz48L2xpbmVhckdyYWRpZW50PjxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTIiIHgxPSIzOC45MyIgeTE9Ii0xNTQuNTQiIHgyPSI1MC42IiB5Mj0iLTE2MS44NCIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxLCAwLCAwLCAtMSwgMCwgLTExMy43OCkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj48c3RvcCBvZmZzZXQ9IjAuMSIgc3RvcC1jb2xvcj0iIzg3NDQwMCIvPjxzdG9wIG9mZnNldD0iMC4yNiIgc3RvcC1jb2xvcj0iI2Q4OGEwMCIvPjxzdG9wIG9mZnNldD0iMC4zNyIgc3RvcC1jb2xvcj0iI2U3OWQwMCIvPjxzdG9wIG9mZnNldD0iMC41MiIgc3RvcC1jb2xvcj0iI2YyYjQwMCIvPjxzdG9wIG9mZnNldD0iMC43IiBzdG9wLWNvbG9yPSIjZmFkMjAyIi8+PHN0b3Agb2Zmc2V0PSIwLjkiIHN0b3AtY29sb3I9IiNmZWRmMDMiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cG9seWxpbmUgY2xhc3M9ImNscy0xIiBwb2ludHM9IjMyIDAgNjQgMzIgMzIgNjQgMCAzMiAzMiAwIi8+PHBvbHlnb24gY2xhc3M9ImNscy0yIiBwb2ludHM9IjQ0LjE1IDM1LjI0IDMyIDY0IDMyIDY0IDY0IDMyIDU1LjY5IDIzLjY4IDQ0LjE1IDM1LjI0Ii8+PC9zdmc+" class="partner-logo-img" id="partner-logo-display" alt="CommBank">
+        <span class="partner-name" contenteditable="true" data-key="partner-name">CommBank</span>
+        <div class="upload-overlay"><span>Replace logo</span></div>
+      </div>
     </div>
 
     <!-- Headline -->
@@ -364,6 +371,8 @@ function saveToStorage() {
   if (ssImg && ssImg.src && ssImg.style.display !== 'none') data['__screenshot'] = ssImg.src;
   const ampLogo = document.getElementById('amp-logo-display');
   if (ampLogo && ampLogo.src && !ampLogo.src.startsWith('data:image/svg+xml;base64,PHN')) data['__amp-logo'] = ampLogo.src;
+  const partnerLogo = document.getElementById('partner-logo-display');
+  if (partnerLogo && partnerLogo.dataset.custom === '1') data['__partner-logo'] = partnerLogo.src;
   document.querySelectorAll('.logo-slot').forEach((slot, i) => {
     const img = slot.querySelector('.logo-slot-img');
     if (img && img.src) data['__logo-' + i] = img.src;
@@ -384,6 +393,12 @@ function restoreFromStorage() {
     document.getElementById('remove-screenshot-btn').style.display = 'flex';
   }
   if (data['__amp-logo']) document.getElementById('amp-logo-display').src = data['__amp-logo'];
+  if (data['__partner-logo']) {
+    const pl = document.getElementById('partner-logo-display');
+    pl.src = data['__partner-logo']; pl.dataset.custom = '1';
+    const wm = document.querySelector('#partner-logo-wrap .partner-name');
+    if (wm) wm.style.display = 'none';
+  }
   document.querySelectorAll('.logo-slot').forEach((slot, i) => {
     if (data['__logo-' + i]) {
       const textEl = slot.querySelector('.logo-slot-text');
@@ -418,6 +433,18 @@ function readFile(file, cb) { const r = new FileReader(); r.onload = e => cb(e.t
 document.getElementById('upload-amp-logo').addEventListener('change', function() {
   if (!this.files[0]) return;
   readFile(this.files[0], url => { document.getElementById('amp-logo-display').src = url; saveToStorage(); });
+  this.value = '';
+});
+
+document.getElementById('upload-partner-logo').addEventListener('change', function() {
+  if (!this.files[0]) return;
+  readFile(this.files[0], url => {
+    const pl = document.getElementById('partner-logo-display');
+    pl.src = url; pl.dataset.custom = '1';
+    const wm = document.querySelector('#partner-logo-wrap .partner-name');
+    if (wm) wm.style.display = 'none';
+    saveToStorage();
+  });
   this.value = '';
 });
 
