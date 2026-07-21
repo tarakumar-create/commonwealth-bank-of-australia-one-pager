@@ -400,10 +400,9 @@ function restoreFromStorage() {
   }
   if (data['__amp-logo']) document.getElementById('amp-logo-display').src = data['__amp-logo'];
   if (data['__partner-logo']) {
-    const pl = document.getElementById('partner-logo-display');
-    pl.src = data['__partner-logo']; pl.dataset.custom = '1'; pl.style.display = 'block';
-    const def = document.getElementById('partner-default');
-    if (def) def.style.display = 'none';
+    // Discard any previously uploaded partner logo so the transparent default lockup always shows
+    delete data['__partner-logo'];
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
   }
   document.querySelectorAll('.logo-slot').forEach((slot, i) => {
     if (data['__logo-' + i]) {
