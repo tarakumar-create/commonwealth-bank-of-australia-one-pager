@@ -127,6 +127,15 @@ body {
 .logo-slot-overlay { position: absolute; inset: 0; background: rgba(92,107,192,0.12); border: 1px dashed rgba(92,107,192,0.4); border-radius: 4px; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.15s; pointer-events: none; }
 .logo-slot-overlay span { font-size: 9px; color: #5c6bc0; font-weight: 700; }
 
+/* ── PROOF BAND ── */
+.proof-band { background: #f5f6fa; padding: 16px 40px 18px; border-top: 1px solid #eee; }
+.proof-label { text-align: center; font-size: 10.5px; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; color: #0052F2; margin-bottom: 12px; }
+.proof-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 10px; }
+.proof-stat { text-align: center; }
+.proof-num { font-size: 30px; font-weight: 800; color: #001A4F; letter-spacing: -1px; line-height: 1; }
+.proof-cap { font-size: 11px; color: #555; margin-top: 5px; line-height: 1.35; }
+.proof-foot { text-align: center; font-size: 10px; color: #999; font-style: italic; line-height: 1.5; max-width: 660px; margin: 0 auto; }
+
 /* ── FOOTER ── */
 .footer { padding: 12px 40px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #eee; background: #fff; }
 .footer-copy { font-size: 10.5px; color: #bbb; }
@@ -155,10 +164,6 @@ input[type=file] { display: none; }
 <!-- Hidden file inputs for image uploads -->
 <input type="file" id="upload-amp-logo" accept="image/*">
 <input type="file" id="upload-screenshot" accept="image/*">
-<input type="file" id="upload-logo-0" accept="image/*">
-<input type="file" id="upload-logo-1" accept="image/*">
-<input type="file" id="upload-logo-2" accept="image/*">
-<input type="file" id="upload-logo-3" accept="image/*">
 
 <!-- Toolbar -->
 <div class="toolbar">
@@ -317,27 +322,24 @@ input[type=file] { display: none; }
 
   </div><!-- /body -->
 
-  <!-- LOGO STRIP -->
-  <div class="logo-strip">
-    <div contenteditable="true" class="logo-strip-label" data-key="logo-label">Financial services teams choose Amplitude</div>
-    <div class="logos-row" id="logos-row">
-      <div class="logo-slot" title="Click to upload logo" onclick="document.getElementById('upload-logo-0').click()">
-        <span contenteditable="true" class="logo-slot-text" data-key="logo-0">Salt Bank</span>
-        <div class="logo-slot-overlay"><span>Replace</span></div>
+  <!-- PROOF BAND -->
+  <div class="proof-band">
+    <div contenteditable="true" class="proof-label" data-key="proof-label">Proof point · Rocket Mortgage (published via AWS)</div>
+    <div class="proof-stats">
+      <div class="proof-stat">
+        <div contenteditable="true" class="proof-num" data-key="proof-num-0">85%</div>
+        <div contenteditable="true" class="proof-cap" data-key="proof-cap-0">decrease in transfers to customer care</div>
       </div>
-      <div class="logo-slot" title="Click to upload logo" onclick="document.getElementById('upload-logo-1').click()">
-        <span contenteditable="true" class="logo-slot-text" data-key="logo-1">Xapo Bank</span>
-        <div class="logo-slot-overlay"><span>Replace</span></div>
+      <div class="proof-stat">
+        <div contenteditable="true" class="proof-num" data-key="proof-num-1">45%</div>
+        <div contenteditable="true" class="proof-cap" data-key="proof-cap-1">decrease in transfers to servicing specialists</div>
       </div>
-      <div class="logo-slot" title="Click to upload logo" onclick="document.getElementById('upload-logo-2').click()">
-        <span contenteditable="true" class="logo-slot-text" data-key="logo-2">ClearScore</span>
-        <div class="logo-slot-overlay"><span>Replace</span></div>
-      </div>
-      <div class="logo-slot" title="Click to upload logo" onclick="document.getElementById('upload-logo-3').click()">
-        <span contenteditable="true" class="logo-slot-text" data-key="logo-3">Dave</span>
-        <div class="logo-slot-overlay"><span>Replace</span></div>
+      <div class="proof-stat">
+        <div contenteditable="true" class="proof-num" data-key="proof-num-2">68%</div>
+        <div contenteditable="true" class="proof-cap" data-key="proof-cap-2">of clients rated the experience highly</div>
       </div>
     </div>
+    <div contenteditable="true" class="proof-foot" data-key="proof-foot">After deploying an AI assistant refined against usage data. A comparable digital-first lender — not an Amplitude-attributed outcome — offered as the shape of what closing this loop delivers.</div>
   </div>
 
   <!-- FOOTER -->
